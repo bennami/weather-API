@@ -1,0 +1,61 @@
+body{
+    font-family: sans-serif;
+
+    margin-top: 5vmax;
+    align-content: center;
+    background-color: #97c3ed;
+
+}
+
+#button{
+    background-color: #f000;
+    border: solid 1px cornflowerblue;
+    padding: 6px;
+    border-radius:5px;
+    color: #132459;
+    font-size: 16px;
+
+}
+#button:hover {
+    cursor: pointer;
+    background: darkslateblue;
+    color: whitesmoke;
+    transition: all 0.2s;
+    border: none;
+
+}
+
+
+input{
+
+    border: cornflowerblue;
+    background-color: aliceblue;
+    padding: 6px;
+    border-radius:5px;
+    font-size: 16px;
+
+}
+
+.titles{
+
+    font-size: 21px;
+    color: whitesmoke;
+}
+.degrees{
+    font-size: 32px;
+
+}
+
+#listofdays{
+    display: inline-flex;
+    list-style: none;
+
+    padding: 5px;
+
+    margin: 5px;
+}
+
+li{
+    padding: 10px;
+    margin: 5pxpx;
+}

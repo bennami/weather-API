@@ -58,15 +58,10 @@ function GetCity(){
 
         // Getting sum of numbers
 
-        function average(array) {
-            return array.reduce((a, b) => (a + b) / array.length);
-        }
-
-        console.log(average(day1));
 
 
 
-        console.log(sum); // Prints: 15
+
                let day2 = [ temp3hours.slice(8,16)];
 
                let day3 = [ temp3hours.slice(16,24)];
@@ -81,7 +76,11 @@ console.log(day1, day2, day3, day4,day5);
         weather.innerHTML = getweather;
 
         let temperature = document.getElementById('temp');
-        temperature.innerHTML = `It is ${temp}&degC today! It feels like ${tempFeel}&degC though..`
+        temperature.innerHTML = `feels like ${tempFeel}&degC rigth now`;
+
+        let degrees = document.querySelector('.degrees');
+
+        degrees.innerHTML= `${temp}&degC`
 
     }
     console.log(Getdata());
