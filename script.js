@@ -12,7 +12,7 @@ function GetCity(){
 
     //get value from input
     city = document.getElementById('search').value;
-    console.log(city);
+    //console.log(city);
 
     //place value in city's place on URL
     const Url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=de5b3977c5462dfc5d0ee481127a2703&units=metric`;
@@ -32,6 +32,18 @@ function GetCity(){
         let tempFeel = Math.floor(data.list[0].main.feels_like);
         let mintemp = Math.floor(data.list[0].main.temp_min);
         let maxtemp = Math.floor(data.list[0].main.temp_max);
+        let humidity = data.list[0].main.humidity;
+
+       // change src of icon to match weather conditions
+       let icon = data.list[0].weather[0].icon;
+       document.getElementById('icon').src =`http://openweathermap.org/img/wn/${icon}@2x.png`;
+
+
+
+
+
+        console.log(humidity, icon);
+
 
         getweather = data.list[0].weather[0].description;
 
