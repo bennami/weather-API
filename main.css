@@ -59,3 +59,7 @@ li{
     padding: 10px;
     margin: 5pxpx;
 }
+
+#icon{
+    display: inline-flex;
+}
