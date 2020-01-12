@@ -59,9 +59,19 @@ li{
     padding: 10px;
     margin: 5px;
     color: darkslateblue;
+    object-position: center;
 
 }
 
 #icon{
-    display: inline-flex;
+    display: flex;
+}
+
+.todayBox{
+    border: #132459 solid 1px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+    object-position: center;
+
 }

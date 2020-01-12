@@ -28,6 +28,7 @@ function GetCity(){
         console.log(data);
 
         let temp3hours = [];
+        let timelist =[];
         var temp = Math.floor(data.list[0].main.temp);
         let tempFeel = Math.floor(data.list[0].main.feels_like);
         let mintemp = Math.floor(data.list[0].main.temp_min);
@@ -36,9 +37,12 @@ function GetCity(){
 
        // get icon
        let icon = data.list[0].weather[0].icon;
+       let time = data.list[0].dt_txt;
+
+       console.log(time);
 
 
-        console.log(humidity, icon);
+        //console.log(humidity, icon);
 
 
         getweather = data.list[0].weather[0].description;
@@ -46,17 +50,20 @@ function GetCity(){
 
 
 
-        //loop to get temp list every 3 hours
+        //loop to get temp list every 3 hours and timestamp
         let i;
         for (i = 0; i < data.list.length; i++) {
              let templist = Math.floor(data.list[i].main.temp);
              //console.log(templist);
              temp3hours.push(templist);
              //console.log(templist);
+           let times = data.list[i].dt_txt;
+           timelist.push(times);
+
 
 
         }
-
+        console.log(timelist);
         //loop to get icons
 
 
@@ -82,9 +89,12 @@ function GetCity(){
         let day5 = temp3hours.slice(32,50);
         day5 = average(day5);
 
-        console.log(day1, day2, day3, day4,day5);
+       // console.log(day1, day2, day3, day4,day5);
 
         //assign API data to DOM elements
+        let cityname = document.getElementById('cityname');
+        cityname.innerHTML = city;
+
         let weather = document.getElementById('weather');
         weather.innerHTML = getweather;
 
