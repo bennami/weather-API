@@ -49,15 +49,17 @@ input{
 #listofdays{
     display: inline-flex;
     list-style: none;
-
     padding: 5px;
-
     margin: 5px;
 }
 
 li{
+    background-color: rgba(245, 245, 245, 0.28);
+    border-radius:5px;
     padding: 10px;
-    margin: 5pxpx;
+    margin: 5px;
+    color: darkslateblue;
+
 }
 
 #icon{

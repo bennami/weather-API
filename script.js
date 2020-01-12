@@ -34,12 +34,8 @@ function GetCity(){
         let maxtemp = Math.floor(data.list[0].main.temp_max);
         let humidity = data.list[0].main.humidity;
 
-       // change src of icon to match weather conditions
+       // get icon
        let icon = data.list[0].weather[0].icon;
-       document.getElementById('icon').src =`http://openweathermap.org/img/wn/${icon}@2x.png`;
-
-
-
 
 
         console.log(humidity, icon);
@@ -57,12 +53,15 @@ function GetCity(){
              //console.log(templist);
              temp3hours.push(templist);
              //console.log(templist);
-            let icon = data.list[i].weather[i].icon;
-            console.log(icon);
+
+
         }
 
+        //loop to get icons
 
-        // Getting sum of numbers
+
+
+        // Getting average of numbers
         function average(array) {
             return Math.round(array.reduce((a, b) => a + b) / array.length);
         }
@@ -93,9 +92,36 @@ function GetCity(){
         temperature.innerHTML = `feels like ${tempFeel}&degC rigth now`;
 
         let averagetemp = document.querySelector('.degrees');
+        averagetemp.innerHTML= `${day1}&degC`;
 
-        averagetemp.innerHTML= `${day1}&degC`
+        let next1 = document.querySelector('.next1');
+        next1.innerHTML = `${day2}&degC`;
 
+        let next2 = document.querySelector('.next2');
+        next2.innerHTML = `${day3}&degC`;
+
+        let next3 = document.querySelector('.next3');
+        next3.innerHTML = `${day4}&degC`;
+
+        let next4 = document.querySelector('.next4');
+        next4.innerHTML = `${day5}&degC`;
+
+
+        //icons
+
+        //main day icon
+        document.getElementById('icon').src =`http://openweathermap.org/img/wn/${icon}@2x.png`;
+
+        //upcoming days icon
+        let icon2 = document.getElementById('icon2');
+        let icon3 = document.getElementById('icon3');
+        let icon4 = document.getElementById('icon4');
+        let icon5 = document.getElementById('icon5');
+
+        icon2.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+        icon3.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+        icon4.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+        icon5.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
     }
     console.log(Getdata());
 }
