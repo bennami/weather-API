@@ -121,9 +121,48 @@ function GetCity(){
         console.log(imane);
         console.log(timez);
 
+
+        let res1 = [];
+        let res2 = [];
+        let res3 = [];
+        let res4 = [];
+        let res5 = [];
+        let res6 = [];
+
+
+
+        for(y=0; y<imane.length;y++){
+
+            if(imane[y] == 0){
+
+                res1= imane[y];
+
+
+            }else if(imane[y] == 1){
+                res2 = imane[y];
+
+            }else if (imane[y] == 2){
+
+                res2 = imane[y];
+
+            }else if (imane[y] ==3){
+                res2 = imane[y];
+
+            }else if (imane[y] == 4){
+
+                res2 = imane[y];
+
+            }else if (imane[y] == 5){
+                res2 = imane[y];
+            }
+
+
+        }
+
+        console.log(res1,res2,res3,res4,res5);
         //sort
-        imane.sort()
-        console.log(temp3hours);
+
+       // console.log(temp3hours);
 
 
 
