@@ -3,6 +3,7 @@
 //decalre variable for city here so its accessible in global scope
 let city;
 let getweather;
+let date;
 
 //execute Api when cityname is given and search button is clicked
 document.getElementById('button').onclick = function() {GetCity()};
@@ -28,18 +29,29 @@ function GetCity(){
         console.log(data);
 
         let temp3hours = [];
-        let timelist =[];
+
         var temp = Math.floor(data.list[0].main.temp);
         let tempFeel = Math.floor(data.list[0].main.feels_like);
         let mintemp = Math.floor(data.list[0].main.temp_min);
         let maxtemp = Math.floor(data.list[0].main.temp_max);
         let humidity = data.list[0].main.humidity;
+        let time = data.list[0].dt_txt;
 
-       // get icon
-       let icon = data.list[0].weather[0].icon;
-       let time = data.list[0].dt_txt;
+        // get icon
+        let icons1 = data.list[0].weather[0].icon;
 
-       console.log(time);
+        let icons2 = data.list[8].weather[0].icon;
+
+        let icons3 = data.list[16].weather[0].icon;
+
+        let icons4 = data.list[24].weather[0].icon;
+
+        let icons5 = data.list[32].weather[0].icon;
+
+
+   console.log(icons1,icons2,icons3,icons4,icons5);
+
+        console.log(icon);
 
 
         //console.log(humidity, icon);
@@ -48,27 +60,17 @@ function GetCity(){
         getweather = data.list[0].weather[0].description;
 
 
-
-
-        //loop to get temp list every 3 hours and timestamp
+        //loop to get temp list every 3 hours
         let i;
         for (i = 0; i < data.list.length; i++) {
-             let templist = Math.floor(data.list[i].main.temp);
-             //console.log(templist);
-             temp3hours.push(templist);
-             //console.log(templist);
-           let times = data.list[i].dt_txt;
-           timelist.push(times);
-
-
-
+            let templist = Math.floor(data.list[i].main.temp);
+            temp3hours.push(templist);
         }
-        console.log(timelist);
-        //loop to get icons
+        //console.log(temp3hours);
 
 
 
-        // Getting average of numbers
+        // Getting average of temp values
         function average(array) {
             return Math.round(array.reduce((a, b) => a + b) / array.length);
         }
@@ -77,19 +79,71 @@ function GetCity(){
         let day1 = temp3hours.slice(0, 8);
         day1 = average(day1);
 
-        let day2 = temp3hours.slice(8,16);
+        let day2 = temp3hours.slice(8, 16);
         day2 = average(day2);
 
-        let day3 = temp3hours.slice(16,24);
+        let day3 = temp3hours.slice(16, 24);
         day3 = average(day3);
 
-        let day4 = temp3hours.slice(24,32);
+        let day4 = temp3hours.slice(24, 32);
         day4 = average(day4);
 
-        let day5 = temp3hours.slice(32,50);
+        let day5 = temp3hours.slice(32, 50);
         day5 = average(day5);
 
-       // console.log(day1, day2, day3, day4,day5);
+        console.log(day1, day2, day3, day4,day5);
+
+        //get current date
+        date = new Date(); //.toLocaleString();
+        let CurrentYear = date.getFullYear();
+        let CurrentMonth = date.getMonth() + 1; // index of month starts at 0
+
+        let CurrentDay = date.getDate();
+
+        let CurrentTime = date.getHours();
+        CurrentTime = `${CurrentTime}:00:00`;
+        console.log(CurrentTime);
+
+        if (CurrentMonth < 10) {
+            CurrentMonth = "0" + CurrentMonth;
+        } else {
+            CurrentMonth;
+        }
+
+
+        let CurrentDate;
+
+        CurrentDate = `${CurrentYear}-${CurrentMonth}-${CurrentDay}`;
+
+        CurrentDate = `${CurrentDate} ${CurrentTime}`;
+        console.log(CurrentDate);
+
+        let days =[ "Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let currentday = days[date.getDay()];
+        let comingday2 = days[date.getDay()+1];
+        let comingday3 = days[date.getDay()+2];
+        let comingday4 = days[date.getDay()+3];
+        let comingday5 = days[date.getDay()+4];
+        console.log(currentday,comingday2,comingday3,comingday4,comingday5);
+
+
+        //assign day names to DOM
+        let current = document.getElementById('date');
+        current.innerHTML = currentday;
+
+        let coming2 = document.getElementById('comingday1');
+        coming2.innerHTML = comingday2;
+
+        let coming3 = document.getElementById('comingday2');
+        coming3.innerHTML = comingday3;
+
+        let coming4 = document.getElementById('comingday3');
+        coming4.innerHTML = comingday4;
+
+        let coming5 = document.getElementById('comingday4');
+        coming5.innerHTML = comingday5;
+
+
 
         //assign API data to DOM elements
         let cityname = document.getElementById('cityname');
@@ -117,21 +171,21 @@ function GetCity(){
         next4.innerHTML = `${day5}&degC`;
 
 
-        //icons
+
 
         //main day icon
-        document.getElementById('icon').src =`http://openweathermap.org/img/wn/${icon}@2x.png`;
+        document.getElementById('icon').src =`http://openweathermap.org/img/wn/${icons1}@2x.png`;
 
-        //upcoming days icon
+        //upcoming days icon assign
         let icon2 = document.getElementById('icon2');
         let icon3 = document.getElementById('icon3');
         let icon4 = document.getElementById('icon4');
         let icon5 = document.getElementById('icon5');
 
-        icon2.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-        icon3.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-        icon4.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-        icon5.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+        icon2.src = `http://openweathermap.org/img/wn/${icons2}@2x.png`;
+        icon3.src = `http://openweathermap.org/img/wn/${icons3}@2x.png`;
+        icon4.src = `http://openweathermap.org/img/wn/${icons4}@2x.png`;
+        icon5.src = `http://openweathermap.org/img/wn/${icons5}@2x.png`;
     }
     console.log(Getdata());
 }
