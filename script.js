@@ -5,12 +5,17 @@ let city;
 let getweather;
 let date;
 
+let hide = document.getElementById('box');
+    hide.style.visibility='hidden';
+
 //execute Api when cityname is given and search button is clicked
 document.getElementById('button').onclick = function() {GetCity()};
 
+
+
 //run this function on click
 function GetCity(){
-
+    hide.style.visibility='visible';
     //get value from input
     city = document.getElementById('search').value;
     //console.log(city);
@@ -35,9 +40,9 @@ function GetCity(){
         let mintemp = Math.floor(data.list[0].main.temp_min);
         let maxtemp = Math.floor(data.list[0].main.temp_max);
         let humidity = data.list[0].main.humidity;
-        let time = data.list[0].dt_txt;
 
-        // get icon
+
+        // get icons for all days
         let icons1 = data.list[0].weather[0].icon;
 
         let icons2 = data.list[8].weather[0].icon;
@@ -51,10 +56,7 @@ function GetCity(){
 
    console.log(icons1,icons2,icons3,icons4,icons5);
 
-        console.log(icon);
 
-
-        //console.log(humidity, icon);
 
 
         getweather = data.list[0].weather[0].description;
@@ -91,18 +93,62 @@ function GetCity(){
         let day5 = temp3hours.slice(32, 50);
         day5 = average(day5);
 
-        console.log(day1, day2, day3, day4,day5);
+        //console.log(day1, day2, day3, day4,day5);
 
         //get current date
         date = new Date(); //.toLocaleString();
-        let CurrentYear = date.getFullYear();
-        let CurrentMonth = date.getMonth() + 1; // index of month starts at 0
-
         let CurrentDay = date.getDate();
 
-        let CurrentTime = date.getHours();
-        CurrentTime = `${CurrentTime}:00:00`;
-        console.log(CurrentTime);
+
+        //get date api
+
+        let entireDate;
+        let x;
+        let timez =[];
+        let hourLess;
+        let imane =[];
+        for(x =0; x < data.list.length; x++){
+
+            entireDate = data.list[x].dt_txt;
+            //get rid of hours
+            hourLess = entireDate.slice(0,10);
+            timez.push(hourLess);
+
+           let newdays = new Date(timez[x]).getDay();
+            console.log(newdays);
+            imane.push(newdays);
+        }
+        console.log(imane);
+        console.log(timez);
+
+        //sort
+        imane.sort()
+        console.log(temp3hours);
+
+
+
+
+        let days =[ "Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let currentday = days[date.getDay()];
+        let comingday2 = days[date.getDay()+1];
+        let comingday3 = days[date.getDay()+2];
+        let comingday4 = days[date.getDay()+3];
+        let comingday5 = days[date.getDay()+4];
+       // console.log(currentday,comingday2,comingday3,comingday4,comingday5);
+
+
+
+        //get current time
+        let CurrentHour = date.getHours();
+        let CurrentMinute = date.getMinutes();
+        let CurrentMonth = date.getMonth()+1;
+        let CurrentYear = date.getFullYear();
+        if(CurrentMinute<10){
+            CurrentMinute = `0${CurrentMinute}`;
+        }else{
+            CurrentMinute
+        }
+        let CurrentTime = `${CurrentHour}:${CurrentMinute}`;
 
         if (CurrentMonth < 10) {
             CurrentMonth = "0" + CurrentMonth;
@@ -115,21 +161,13 @@ function GetCity(){
 
         CurrentDate = `${CurrentYear}-${CurrentMonth}-${CurrentDay}`;
 
-        CurrentDate = `${CurrentDate} ${CurrentTime}`;
+        CurrentDate = `${CurrentDate}`;
         console.log(CurrentDate);
-
-        let days =[ "Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        let currentday = days[date.getDay()];
-        let comingday2 = days[date.getDay()+1];
-        let comingday3 = days[date.getDay()+2];
-        let comingday4 = days[date.getDay()+3];
-        let comingday5 = days[date.getDay()+4];
-        console.log(currentday,comingday2,comingday3,comingday4,comingday5);
 
 
         //assign day names to DOM
         let current = document.getElementById('date');
-        current.innerHTML = currentday;
+        current.innerHTML = currentday +" "+CurrentDay+" "+CurrentTime;
 
         let coming2 = document.getElementById('comingday1');
         coming2.innerHTML = comingday2;
@@ -145,16 +183,25 @@ function GetCity(){
 
 
 
+
+
+
+
         //assign API data to DOM elements
+
+        //cityname
         let cityname = document.getElementById('cityname');
         cityname.innerHTML = city;
 
+        //weather description
         let weather = document.getElementById('weather');
         weather.innerHTML = getweather;
 
+        //tempfeel
         let temperature = document.getElementById('temp');
         temperature.innerHTML = `feels like ${tempFeel}&degC rigth now`;
 
+        //average temperature
         let averagetemp = document.querySelector('.degrees');
         averagetemp.innerHTML= `${day1}&degC`;
 
@@ -169,9 +216,6 @@ function GetCity(){
 
         let next4 = document.querySelector('.next4');
         next4.innerHTML = `${day5}&degC`;
-
-
-
 
         //main day icon
         document.getElementById('icon').src =`http://openweathermap.org/img/wn/${icons1}@2x.png`;

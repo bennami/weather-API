@@ -43,8 +43,22 @@ input{
     font-size: 21px;
     color: whitesmoke;
 }
+
+#cityname{
+    font-size: 3em;
+    margin:0;
+}
+
+#date{
+margin-top:-3px;
+}
+.temp{
+    display: flex;
+}
 .degrees{
-    font-size: 32px;
+    font-size: 3em;
+
+
 
 }
 
@@ -85,4 +99,17 @@ ul{
     margin-top: 10px;
     object-position: center;
 
+}
+
+.intro{
+    display: flex;
+    align-items: baseline;
+    padding: 5px;
+}
+
+
+
+.intro2{
+    display: flex;
+    align-items: baseline;
 }
