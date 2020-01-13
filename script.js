@@ -135,29 +135,34 @@ function GetCity(){
 
             if(imane[y] == 0){
 
-                res1= imane[y];
+                res1.push(data.list[y]);
 
 
             }else if(imane[y] == 1){
-                res2 = imane[y];
+
+                res2.push(data.list[y]);
 
             }else if (imane[y] == 2){
 
-                res2 = imane[y];
+                res3.push(data.list[y]);
 
             }else if (imane[y] ==3){
-                res2 = imane[y];
+
+                res4.push(data.list[y]);
 
             }else if (imane[y] == 4){
 
-                res2 = imane[y];
+                res5.push(data.list[y]);
 
             }else if (imane[y] == 5){
-                res2 = imane[y];
+
+                res6.push(data.list[y]);
             }
 
 
         }
+
+    
 
         console.log(res1,res2,res3,res4,res5);
         //sort
