@@ -83,7 +83,7 @@ function filterTheData (data) {
     let allIcons = [];
     let weatherdescription = [];
 
-//get all temp
+    //get all temp
     for(z=0; z<imane.length;z++){
 
         alldata.push(data.list[z]);
@@ -185,6 +185,11 @@ function filterTheData (data) {
         CurrentMinute = `0${CurrentMinute}`;
     } else {
         CurrentMinute
+    }
+    if(CurrentHour <10){
+        CurrentHour = `0${CurrentHour}`;
+    }else{
+        CurrentHour;
     }
     let CurrentTime = `${CurrentHour}:${CurrentMinute}`;
 

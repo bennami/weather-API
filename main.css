@@ -2,7 +2,7 @@ body{
     font-family: sans-serif;
     margin-top: 5vmax;
     align-content: center;
-    background-color: #97c3ed;
+    background-color: #1d1837;
     align-items: center;
 }
 #TodayBox{
@@ -22,16 +22,17 @@ body{
 }
 
 #button{
-    background-color: #f000;
-    border: solid 1px cornflowerblue;
+    background-color: whitesmoke;
+    border: none;
     padding: 6px;
     border-radius:5px;
     color: #132459;
     font-size: 16px;
+    margin-left: 5px;
 }
 #button:hover {
     cursor: pointer;
-    background: darkslateblue;
+    background: #a4a1d2;
     color: whitesmoke;
     transition: all 0.2s;
     border: none;
@@ -56,14 +57,16 @@ input{
 
 #cityname{
     font-size: 3em;
-    margin:0;
+    margin: 15px 0 0px 15px;
+
 }
 
 #dateHour{
   display: inline-flex;
 }
-#date{
-    margin-right: 15px;
+#date, #hour{
+
+    margin: 5px 15px 5px 15px;
 }
 .temp{
     display: flex;
@@ -84,7 +87,7 @@ input{
 }
 
 li{
-    background-color: rgba(245, 245, 245, 0.28);
+    background-color: rgb(186, 184, 253);
     border-radius:5px;
     padding: 10px;
     margin: 5px;
@@ -122,7 +125,7 @@ ul{
 }
 @media only screen and (max-width: 500px){
     #upcomingDays{
-        
+
     }
 }
 @media only screen and (min-width: 500px) and (max-width: 768px){}
