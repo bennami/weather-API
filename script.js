@@ -5,26 +5,25 @@ let city;
 let getweather;
 let date;
 
+//hide results of search
 let hide = document.getElementById('box');
-    hide.style.visibility='hidden';
+hide.style.visibility='hidden';
 
 //execute Api when cityname is given and search button is clicked
 document.getElementById('button').onclick = function() {GetCity()};
-
-
 
 //run this function on click
 function GetCity(){
     hide.style.visibility='visible';
     //get value from input
     city = document.getElementById('search').value;
-    //console.log(city);
 
     //place value in city's place on URL
-    const Url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=de5b3977c5462dfc5d0ee481127a2703&units=metric`;
+
 
     //fetch API JSON
-    async function Getdata() {
+    async function Getdata(location) {
+        const Url = `http://api.openweathermap.org/data/2.5/forecast?q=${location}&APPID=de5b3977c5462dfc5d0ee481127a2703&units=metric`;
 
         //fetch stream of data
         let response = await fetch(Url);
@@ -44,23 +43,14 @@ function GetCity(){
 
         // get icons for all days
         let icons1 = data.list[0].weather[0].icon;
-
         let icons2 = data.list[8].weather[0].icon;
-
         let icons3 = data.list[16].weather[0].icon;
-
         let icons4 = data.list[24].weather[0].icon;
-
         let icons5 = data.list[32].weather[0].icon;
 
-
-   console.log(icons1,icons2,icons3,icons4,icons5);
-
-
-
+        console.log(icons1,icons2,icons3,icons4,icons5);
 
         getweather = data.list[0].weather[0].description;
-
 
         //loop to get temp list every 3 hours
         let i;
@@ -68,9 +58,6 @@ function GetCity(){
             let templist = Math.floor(data.list[i].main.temp);
             temp3hours.push(templist);
         }
-        //console.log(temp3hours);
-
-
 
         // Getting average of temp values
         function average(array) {
@@ -114,7 +101,7 @@ function GetCity(){
             hourLess = entireDate.slice(0,10);
             timez.push(hourLess);
 
-           let newdays = new Date(timez[x]).getDay();
+            let newdays = new Date(timez[x]).getDay();
             console.log(newdays);
             imane.push(newdays);
         }
@@ -128,6 +115,7 @@ function GetCity(){
         let res4 = [];
         let res5 = [];
         let res6 = [];
+
 
 
 
@@ -162,12 +150,12 @@ function GetCity(){
 
         }
 
-    
 
-        console.log(res1,res2,res3,res4,res5);
+
+        console.log(res1,res2,res3,res4,res5,res6);
         //sort
 
-       // console.log(temp3hours);
+        // console.log(temp3hours);
 
 
 
@@ -178,7 +166,7 @@ function GetCity(){
         let comingday3 = days[date.getDay()+2];
         let comingday4 = days[date.getDay()+3];
         let comingday5 = days[date.getDay()+4];
-       // console.log(currentday,comingday2,comingday3,comingday4,comingday5);
+        // console.log(currentday,comingday2,comingday3,comingday4,comingday5);
 
 
 
