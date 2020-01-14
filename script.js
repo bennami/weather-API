@@ -20,7 +20,7 @@ function GetCity() {
 
 //fetches API data
 async function Getdata(location) {
-    const Url = `http://api.openweathermap.org/data/2.5/forecast?q=${location}&APPID=de5b3977c5462dfc5d0ee481127a2703&units=metric`;
+    const Url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&APPID=de5b3977c5462dfc5d0ee481127a2703&units=metric`;
     //fetch and when u have fetched put promise that you will put data  in filterdata function
     fetch(Url).then((response) => response.json()).then((responseJson) => {
         this.filterTheData(responseJson);
