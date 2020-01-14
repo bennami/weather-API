@@ -1,10 +1,22 @@
 body{
     font-family: sans-serif;
-
     margin-top: 5vmax;
     align-content: center;
     background-color: #97c3ed;
-align-items: center;
+    align-items: center;
+}
+#TodayBox{
+
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px 15px 15px 0;
+    object-position: center;
+
+    background-size: cover;
+}
+
+#weather{
+    margin-right: 15px;
 }
 
 #button{
@@ -14,7 +26,6 @@ align-items: center;
     border-radius:5px;
     color: #132459;
     font-size: 16px;
-
 }
 #button:hover {
     cursor: pointer;
@@ -22,9 +33,7 @@ align-items: center;
     color: whitesmoke;
     transition: all 0.2s;
     border: none;
-
 }
-
 
 input{
 
@@ -33,8 +42,7 @@ input{
     padding: 6px;
     border-radius:5px;
     font-size: 16px;
-    min-width: 40%;
-    max-width: 50%;
+
 
 }
 
@@ -93,14 +101,7 @@ ul{
     display: flex;
 }
 
-.todayBox{
-    border: #132459 solid 1px;
-    border-radius: 5px;
-    padding: 5px;
-    margin-top: 10px;
-    object-position: center;
 
-}
 
 .intro{
     display: flex;
