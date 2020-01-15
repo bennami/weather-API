@@ -1,7 +1,7 @@
 # weather-API
 
 I created a website that forecasts the weather for the next 5 days using the openweathermap.org API
-![preview](weather web.png)
+![preview](https://github.com/bennami/weather-API/blob/master/weather%20web.png)
 In the begining i got along pretty well with the api, i watched the coding train(https://www.youtube.com/watch?v=ecT42O6I_WI&t=771s) explaining how yo go by the link and that helped a lot. Had i only gone by the documentation of the website, i would have had a lot of trouble.
 
 I was able to retrieve the information from the api quite easily. Then i slowly started realizing that none of the data made sense and that i was hard coding a lot of stuff. 
