@@ -166,7 +166,7 @@ function filterTheData (data) {
     let humid3 = average(slicehumid3);
     let humid4 = average(slicehumid4);
     let humid5 = average(slicehumid5);
-    console.log(humid1,humid2,humid3);
+
 
     //set days of the week, this doesnt work properly cuz if current day is 6, coming days will be 7,8,9,10. need to reverse count
     //temporary solution: array of 15 elements
@@ -244,6 +244,18 @@ function filterTheData (data) {
     icons3.src = `http://openweathermap.org/img/wn/${icon3}@2x.png`;
     icons4.src = `http://openweathermap.org/img/wn/${icon4}@2x.png`;
     icons5.src = `http://openweathermap.org/img/wn/${icon5}@2x.png`;
+
+    //chance of rain
+    let humidity =document.querySelector('.humidity1');
+    humidity.innerHTML = `humidity: ${humid1}%`;
+    let humidity2 =document.querySelector('.humidity2');
+    humidity2.innerHTML =`humidity: ${humid2}%`;
+    let humidity3 =document.querySelector('.humidity3');
+    humidity3.innerHTML = `humidity: ${humid3}%`;
+    let humidity4 =document.querySelector('.humidity4');
+    humidity4.innerHTML = `humidity: ${humid4}%`;
+    let humidity5 =document.querySelector('.humidity5');
+    humidity5.innerHTML = `humidity: ${humid5}%`;
 
 
 }

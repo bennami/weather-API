@@ -5,37 +5,30 @@ body{
     background-color: #1d1837;
     align-items: center;
 }
-#TodayBox{
 
-    border-radius: 5px;
-    padding: 5px;
-    margin: 15px 15px 15px 0;
-    object-position: center;
-
-    background-size: cover;
-}
-#overlap{
-    background-color: rgba(245, 245, 245, 0.84);
-}
-#weather{
-    margin-right: 15px;
+.titles{
+    font-size: 4vmax;
+    color: whitesmoke;
+    margin-left: 15px;
+    margin-bottom: 15px;
 }
 
 #button{
-    background-color: whitesmoke;
-    border: none;
+    background-color: rgba(201, 198, 255, 0);
+    border: solid 1px whitesmoke;
     padding: 6px;
     border-radius:5px;
-    color: #132459;
+    color: whitesmoke;
     font-size: 16px;
-    margin-left: 5px;
+
 }
 #button:hover {
     cursor: pointer;
     background: #a4a1d2;
     color: whitesmoke;
     transition: all 0.2s;
-    border: none;
+    border: solid 1px #a4a1d2;
+
 }
 
 input{
@@ -45,14 +38,18 @@ input{
     padding: 6px;
     border-radius:5px;
     font-size: 16px;
-
+    margin: 0 10px 15px 10px;
 
 }
 
-.titles{
 
-    font-size: 21px;
-    color: whitesmoke;
+#TodayBox{
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px 15px 15px 0;
+    object-position: center;
+    background-size: cover;
+
 }
 
 #cityname{
@@ -70,13 +67,18 @@ input{
 }
 .temp{
     display: inline-flex;
+    margin-left: 15px;
 
+}
+.humidity1{
+    margin-left: 15px;
+}
+#weather{
+    margin-right: 15px;
 }
 .degrees{
     font-size: 4em;
-
-
-
+    margin: 15px 0 0 0;
 }
 
 #listofdays{
@@ -92,9 +94,7 @@ li{
     padding: 10px;
     margin: 5px;
     color: darkslateblue;
-
     width: 25%;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,13 +103,12 @@ li{
 
 ul{
     width: 90%;
+    object-position: center;
 }
 
 #icon{
     display: flex;
 }
-
-
 
 .intro{
     display: flex;
@@ -118,16 +117,9 @@ ul{
 }
 
 
-
 .intro2{
-    display: grid;
+    display: flex;
+    align-items: flex-start;
 
 
 }
-@media only screen and (max-width: 500px){
-    #upcomingDays{
-
-    }
-}
-@media only screen and (min-width: 500px) and (max-width: 768px){}
-@media only screen and (min-width: 768px){}
