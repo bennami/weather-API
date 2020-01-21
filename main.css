@@ -51,10 +51,10 @@ input{
     margin: 1.2vh 5vw 1.2vh 5vw;
     object-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     display:grid;
     color: whitesmoke;
     text-shadow: 2px 1px 4px #000000;
-
 }
 
 #cityname{
