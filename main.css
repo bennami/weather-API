@@ -52,6 +52,8 @@ input{
     object-position: center;
     background-size: cover;
     display:grid;
+    color: whitesmoke;
+    text-shadow: 2px 1px 4px #000000;
 
 }
 
