@@ -4,13 +4,15 @@ body{
     align-content: center;
     background-color: #1d1837;
     align-items: center;
+    font-size: 1em;
 }
 
 .titles{
     font-size: 4vmax;
     color: whitesmoke;
-    margin-left: 15px;
-    margin-bottom: 15px;
+    margin-left: 5vw;
+    margin-bottom: 1.2vh;
+
 }
 
 #button{
@@ -33,12 +35,12 @@ body{
 
 input{
 
-    border: cornflowerblue;
+    border: black;
     background-color: aliceblue;
     padding: 6px;
     border-radius:5px;
     font-size: 16px;
-    margin: 0 10px 15px 10px;
+    margin: 0 10px 0 5vw;
 
 }
 
@@ -46,15 +48,16 @@ input{
 #TodayBox{
     border-radius: 5px;
     padding: 5px;
-    margin: 15px 15px 15px 0;
+    margin: 1.2vh 5vw 1.2vh 5vw;
     object-position: center;
     background-size: cover;
+    display:grid;
 
 }
 
 #cityname{
     font-size: 3em;
-    margin: 15px 0 0px 15px;
+    margin: 15px 0 0 15px;
 
 }
 
@@ -89,15 +92,7 @@ input{
 }
 
 li{
-    background-color: rgb(186, 184, 253);
-    border-radius:5px;
-    padding: 10px;
-    margin: 5px;
-    color: darkslateblue;
-    width: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
 
 }
 
@@ -122,4 +117,38 @@ ul{
     align-items: flex-start;
 
 
+}
+
+.container{
+    display:flex;
+justify-content: center;
+    margin:1.2vh 5vw 1.2vh 5vw;
+}
+.daysahead1, .daysahead2, .daysahead3, .daysahead4{
+    background-color: rgb(186, 184, 253);
+    border-radius:5px;
+    padding: 10px;
+    color: darkslateblue;
+    margin: 1vw;
+    justify-content: center;
+    flex: 1;
+}
+
+@media only screen and (max-width: 600px) {
+    .container{
+        display:flex;
+        justify-content: center;
+        margin:1.2vh 5vw 1.2vh 5vw;
+        flex-direction: column;
+    }
+    .daysahead1, .daysahead2, .daysahead3, .daysahead4{
+        background-color: rgb(186, 184, 253);
+        border-radius:5px;
+        padding: 10px;
+        color: darkslateblue;
+        margin: 1vw;
+        justify-content: center;
+        flex: 1;
+        display: flex;
+    }
 }

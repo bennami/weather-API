@@ -1,40 +1,42 @@
 //decalre variable for city here so its accessible in global scope
-let city;
+const APIKEY = 'de5b3977c5462dfc5d0ee481127a2703';
 let getweather;
 let date;
+let city;
 //hide results of search
 let hide = document.getElementById('box');
 hide.style.visibility='hidden';
 
 //execute Api when cityname is given and search button is clicked
-document.getElementById('button').onclick = function() {Getdata(GetCity())};
+document.getElementById('button').addEventListener('click', function(){
+    Getdata(GetCity());
+});
 
 //gets city from input
 function GetCity() {
     hide.style.visibility = 'visible';
     //get value from input
-    city = document.getElementById('search').value;
-    //place value in city's place on URL
-    return city;
+    return city =document.getElementById('search').value;
 }
 
 //fetches API data
-async function Getdata(location) {
-    const Url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&APPID=de5b3977c5462dfc5d0ee481127a2703&units=metric`;
+async function Getdata(city) {
+    const Url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${APIKEY}&units=metric`;
     //fetch and when u have fetched put promise that you will put data  in filterdata function
     fetch(Url).then((response) => response.json()).then((responseJson) => {
         this.filterTheData(responseJson);
     });
-    getPhoto();
+    getPhoto(city);
 }
 
 //fetch picture from unsplash
-async function getPhoto(){
+async function getPhoto(city){
     let response = await fetch(`https://api.unsplash.com/search/photos?query=${city}&client_id=6dd1c2b99d5c25b862d3b76b3523ad08d8fbffcd651e18e457bfe84ff49c8d66`);
     let data = await response.json();
     console.log(data.results[3]);
     let bgPicture = data.results[2].urls.regular;
     document.getElementById('TodayBox').style.backgroundImage = `url(${bgPicture})`;
+
 }
 
 //filter data of data api
@@ -60,9 +62,6 @@ function filterTheData (data) {
         let newdays = new Date(timez[x]).getDay();
         imane.push(newdays);
 
-        if(data.list[x] === undefined){
-            alert('your input is not correct');
-        }
     }
 
 
@@ -113,10 +112,15 @@ function filterTheData (data) {
     }
 
     //slice weather description
-    let sliceweather1 = weatherdescription.slice(res1.length, res1.length+8);
+    let sliceweather1 = weatherdescription.slice(res1.length, res1.length+8);//slicezeathers[0]
     let sliceweather2 = weatherdescription.slice(res1.length+8, res1.length+16);
     let sliceweather3 = weatherdescription.slice(res1.length+16, res1.length+24);
     let sliceweather4 = weatherdescription.slice(res1.length+24, res1.length+32);
+
+    let sliceweathers = [];
+    for(let i=1; i <= 4; i++) {
+        sliceweathers.push(weatherdescription.slice(res1.length+(8 * (i-1)), res1.length+(8 * i)));
+    }
 
     //slice temp according to length of first array
     let daynow = alltemp.slice(0,res1.length);
@@ -178,14 +182,18 @@ function filterTheData (data) {
     let comingday5 = days[date.getDay() + 4];
 
 
+
     //get current time
     let CurrentHour = date.getHours();
     let CurrentMinute = date.getMinutes();
-    if (CurrentMinute < 10) {
-        CurrentMinute = `0${CurrentMinute}`;
-    } else {
-        CurrentMinute
+
+    //CurrentMinute = CurrentMinute.padStart(2, 0);
+    if(CurrentMinute <10){
+        CurrentMinute = `0${CurrentHour}`;
+    }else{
+        CurrentMinute;
     }
+
     if(CurrentHour <10){
         CurrentHour = `0${CurrentHour}`;
     }else{

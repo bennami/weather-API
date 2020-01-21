@@ -66,7 +66,14 @@
       <updated>1578644642663</updated>
       <workItem from="1578644644788" duration="56178000" />
       <workItem from="1579010922686" duration="5834000" />
-      <workItem from="1579034494404" duration="7113000" />
+      <workItem from="1579034494404" duration="7332000" />
+      <workItem from="1579079735016" duration="5407000" />
+      <workItem from="1579088428164" duration="579000" />
+      <workItem from="1579116197879" duration="1788000" />
+      <workItem from="1579170528708" duration="766000" />
+      <workItem from="1579610598773" duration="571000" />
+      <workItem from="1579633838164" duration="1744000" />
+      <workItem from="1579638351054" duration="359000" />
     </task>
     <servers />
   </component>
@@ -78,9 +85,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="408" y="185" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900@0.0.1440.900" timestamp="1579022169248" />
-    <state x="399" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1579034535143">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="399" y="281" key="com.intellij.ide.util.TipDialog" timestamp="1579638458789">
+      <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1579034535143" />
+    <state x="399" y="281" key="com.intellij.ide.util.TipDialog/0.23.1440.822@0.23.1440.822" timestamp="1579638458789" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1579081152174">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1579081152173" />
   </component>
 </project>
